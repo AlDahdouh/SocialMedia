@@ -1,0 +1,1 @@
+mongodb+srv://devconnect:DevConnectDB@cluster0.dig1t.mongodb.net/DevConnect?retryWrites=true&w=majority
