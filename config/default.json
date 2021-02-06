@@ -1,0 +1,4 @@
+{
+  "MONGODBURI": "mongodb+srv://devconnect:DevConnectDB@cluster0.dig1t.mongodb.net/DevConnect?retryWrites=true&w=majority",
+  "SecretKey": "6375eab457af11c4d040d730c081007fbfca6779e477de76281f5829ceb7deeb59a8708710dd698544340c4db65e4ce2b87dd0a5797d14f65ee32415dae6ccb5"
+}
