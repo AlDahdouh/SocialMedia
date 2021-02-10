@@ -6,6 +6,7 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
+  ACCOUNT_DELETED,
 } from "../actions/types";
 const initalState = {
   token: localStorage.getItem("token"),
@@ -23,6 +24,7 @@ const register = (state = initalState, action) => {
     case REGISTER_SUCCESS:
       localStorage.setItem("token", payload.token);
       return { ...state, ...payload, isAuthenticated: true, loading: false };
+    case ACCOUNT_DELETED:
     case LOGIN_FAIL:
     case AUTH_ERROR:
     case REGISTER_FAIL:
