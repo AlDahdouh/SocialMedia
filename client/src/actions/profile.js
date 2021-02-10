@@ -14,7 +14,7 @@ import { setAlert } from "./alert";
 export const getCurrentProfile = () => async (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
   try {
-    const res = await axios("api/profile/me");
+    const res = await axios("/api/profile/me");
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -31,7 +31,7 @@ export const getCurrentProfile = () => async (dispatch) => {
 // Get all profiles
 export const getProfiles = () => async (dispatch) => {
   try {
-    const res = await axios("api/profile");
+    const res = await axios("/api/profile");
     dispatch({
       type: GET_PROFILES,
       payload: res.data,
@@ -47,8 +47,9 @@ export const getProfiles = () => async (dispatch) => {
 
 // Get profile by id
 export const getProfileById = (userId) => async (dispatch) => {
+  console.log(userId);
   try {
-    const res = await axios(`api/profile/user/${userId}`);
+    const res = await axios(`/api/profile/user/${userId}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -63,9 +64,9 @@ export const getProfileById = (userId) => async (dispatch) => {
 };
 
 // Get GitHub repos
-export const getGithubRepose = (username) => async (dispatch) => {
+export const getGithubRepos = (username) => async (dispatch) => {
   try {
-    const res = await axios(`api/profile/github/${username}`);
+    const res = await axios(`/api/profile/github/${username}`);
     dispatch({
       type: GET_REPOS,
       payload: res.data,
@@ -217,7 +218,7 @@ export const deleteEducation = (id) => async (dispatch) => {
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm("Are you sure? This can not be undone!")) {
     try {
-      const res = await axios.delete(`/api/profile`);
+      await axios.delete(`/api/profile`);
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
       dispatch(setAlert("Your account has been permanantly deleted"));
